@@ -15,22 +15,22 @@ public class Perspective : Sense {
     }
     protected override void UpdateSense()
     {
-        elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime;//타이머
         if (elapsedTime >= detectionRate) DetectAspect();
     }
     void DetectAspect ()
     {
         RaycastHit hit;
         rayDirection = playerTrans.position - transform.position;
-        if ((Vector3.Angle(rayDirection, transform.forward)) < FieldOfView)
+        if ((Vector3.Angle(rayDirection, transform.forward)) < FieldOfView)//쏘는각도와 바라보는방향의 각도가 필드뷰(45)보다 작을때
         {
-            if(Physics.Raycast(transform.position,rayDirection,out hit,ViewDistance))
+            if(Physics.Raycast(transform.position,rayDirection,out hit,ViewDistance))//보이는 만큼의 거릴 쏘면
             {
                 Aspect aspect = hit.collider.GetComponent<Aspect>();
 
-                if (aspect!=null)
+                if (aspect!=null)//aspect가안맞았다면
                 {
-                    if (aspect.aspectName == aspectName)
+                    if (aspect.aspectName == aspectName)//aspect가 aspectName과 같다면
                     {
                         print("Enemy Detected");
                     }

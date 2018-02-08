@@ -23,7 +23,7 @@ public class PlayerTank : MonoBehaviour {
         tarPos.y = transform.position.y;
         Vector3 dirRot = tarPos - transform.position;
         Quaternion tarRot = Quaternion.LookRotation(dirRot);
-        transform.rotation = Quaternion.Slerp(transform.rotation, tarRot, rotSpeed * Time.deltaTime);//
-        transform.Translate(new Vector3(0, 0, movementSpeed * Time.deltaTime));	
+        transform.rotation = Quaternion.Slerp(transform.rotation, tarRot, rotSpeed * Time.deltaTime);//돌기
+        transform.Translate(new Vector3(0, 0, movementSpeed * Time.deltaTime));	//이동
 	}
 }

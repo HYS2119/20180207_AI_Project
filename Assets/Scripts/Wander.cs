@@ -21,7 +21,7 @@ public class Wander : MonoBehaviour {
 
 	void Update ()
     {
-        if (Vector3.Distance(tarPos, transform.position) <= 5.0f)
+        if (Vector3.Distance(tarPos, transform.position) <= 5.0f)//거리가5이하면
             GetNextPosition();
         Quaternion tarRot = Quaternion.LookRotation(tarPos - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, tarRot, rotSpeed * Time.deltaTime);
